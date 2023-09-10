@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "staffData": {
+      "home": {
+        "title": "Staff Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Staff Data",
+        "createOrEditLabel": "Create or edit a Staff Data",
+        "notFound": "No Staff Data found"
+      },
+      "created": "A new Staff Data is created with identifier {{ param }}",
+      "updated": "A Staff Data is updated with identifier {{ param }}",
+      "deleted": "A Staff Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Staff Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Staff Data"
+      },
+      "id": "ID",
+      "orderStaff": "Order Staff",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "jobType": "Job Type",
+      "unitName": "Unit Name"
+    }
+  }
+}

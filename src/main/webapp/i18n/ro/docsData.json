@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "docsData": {
+      "home": {
+        "title": "Docs Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Docs Data",
+        "createOrEditLabel": "Creeare sau editare Docs Data",
+        "notFound": "No Docs Data found"
+      },
+      "created": "A fost creată o nouă entitate Docs Data cu identificatorul {{ param }}",
+      "updated": "Docs Data cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Docs Data cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Docs Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Docs Data"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "doc": "Doc",
+      "orderdoc": "Orderdoc",
+      "resourcedate": "Resourcedate"
+    }
+  }
+}

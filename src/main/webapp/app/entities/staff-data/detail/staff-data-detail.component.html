@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="staffData">
+      <h2 data-cy="staffDataDetailsHeading"><span jhiTranslate="schoolManagementApp.staffData.detail.title">Staff Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ staffData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.staffData.orderStaff">Order Staff</span></dt>
+        <dd>
+          <span>{{ staffData.orderStaff }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.staffData.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ staffData.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.staffData.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ staffData.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.staffData.jobType">Job Type</span></dt>
+        <dd>
+          <span>{{ staffData.jobType }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.staffData.unitName">Unit Name</span></dt>
+        <dd>
+          <span>{{ staffData.unitName }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/staff-data', staffData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

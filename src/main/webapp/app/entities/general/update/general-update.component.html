@@ -1,0 +1,217 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-general-heading" data-cy="GeneralCreateUpdateHeading" jhiTranslate="schoolManagementApp.general.home.createOrEditLabel">
+        Create or edit a General
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.siteName" for="field_siteName">Site Name</label>
+          <input type="text" class="form-control" name="siteName" id="field_siteName" data-cy="siteName" formControlName="siteName" />
+          <div *ngIf="editForm.get('siteName')!.invalid && (editForm.get('siteName')!.dirty || editForm.get('siteName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('siteName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.homePageName" for="field_homePageName">Home Page Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="homePageName"
+            id="field_homePageName"
+            data-cy="homePageName"
+            formControlName="homePageName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.resourcesPageName" for="field_resourcesPageName"
+            >Resources Page Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourcesPageName"
+            id="field_resourcesPageName"
+            data-cy="resourcesPageName"
+            formControlName="resourcesPageName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.staffPageName" for="field_staffPageName"
+            >Staff Page Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="staffPageName"
+            id="field_staffPageName"
+            data-cy="staffPageName"
+            formControlName="staffPageName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.aboutPageName" for="field_aboutPageName"
+            >About Page Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="aboutPageName"
+            id="field_aboutPageName"
+            data-cy="aboutPageName"
+            formControlName="aboutPageName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.facebookAddress" for="field_facebookAddress"
+            >Facebook Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="facebookAddress"
+            id="field_facebookAddress"
+            data-cy="facebookAddress"
+            formControlName="facebookAddress"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.address" for="field_address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.motto" for="field_motto">Motto</label>
+          <input type="text" class="form-control" name="motto" id="field_motto" data-cy="motto" formControlName="motto" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.structure1" for="field_structure1">Structure 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="structure1"
+            id="field_structure1"
+            data-cy="structure1"
+            formControlName="structure1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.structure2" for="field_structure2">Structure 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="structure2"
+            id="field_structure2"
+            data-cy="structure2"
+            formControlName="structure2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.structure3" for="field_structure3">Structure 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="structure3"
+            id="field_structure3"
+            data-cy="structure3"
+            formControlName="structure3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.structure4" for="field_structure4">Structure 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="structure4"
+            id="field_structure4"
+            data-cy="structure4"
+            formControlName="structure4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.contactHeader" for="field_contactHeader"
+            >Contact Header</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contactHeader"
+            id="field_contactHeader"
+            data-cy="contactHeader"
+            formControlName="contactHeader"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.structuresHeader" for="field_structuresHeader"
+            >Structures Header</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="structuresHeader"
+            id="field_structuresHeader"
+            data-cy="structuresHeader"
+            formControlName="structuresHeader"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.general.mapUrl" for="field_mapUrl">Map Url</label>
+          <input type="text" class="form-control" name="mapUrl" id="field_mapUrl" data-cy="mapUrl" formControlName="mapUrl" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

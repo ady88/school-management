@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="general">
+      <h2 data-cy="generalDetailsHeading"><span jhiTranslate="schoolManagementApp.general.detail.title">General</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ general.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.siteName">Site Name</span></dt>
+        <dd>
+          <span>{{ general.siteName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.homePageName">Home Page Name</span></dt>
+        <dd>
+          <span>{{ general.homePageName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.resourcesPageName">Resources Page Name</span></dt>
+        <dd>
+          <span>{{ general.resourcesPageName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.staffPageName">Staff Page Name</span></dt>
+        <dd>
+          <span>{{ general.staffPageName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.aboutPageName">About Page Name</span></dt>
+        <dd>
+          <span>{{ general.aboutPageName }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.facebookAddress">Facebook Address</span></dt>
+        <dd>
+          <span>{{ general.facebookAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.address">Address</span></dt>
+        <dd>
+          <span>{{ general.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.phone">Phone</span></dt>
+        <dd>
+          <span>{{ general.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.email">Email</span></dt>
+        <dd>
+          <span>{{ general.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.motto">Motto</span></dt>
+        <dd>
+          <span>{{ general.motto }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.structure1">Structure 1</span></dt>
+        <dd>
+          <span>{{ general.structure1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.structure2">Structure 2</span></dt>
+        <dd>
+          <span>{{ general.structure2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.structure3">Structure 3</span></dt>
+        <dd>
+          <span>{{ general.structure3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.structure4">Structure 4</span></dt>
+        <dd>
+          <span>{{ general.structure4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.contactHeader">Contact Header</span></dt>
+        <dd>
+          <span>{{ general.contactHeader }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.structuresHeader">Structures Header</span></dt>
+        <dd>
+          <span>{{ general.structuresHeader }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.general.mapUrl">Map Url</span></dt>
+        <dd>
+          <span>{{ general.mapUrl }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/general', general.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

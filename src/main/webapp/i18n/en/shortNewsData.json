@@ -1,0 +1,26 @@
+{
+  "schoolManagementApp": {
+    "shortNewsData": {
+      "home": {
+        "title": "Short News Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Short News Data",
+        "createOrEditLabel": "Create or edit a Short News Data",
+        "notFound": "No Short News Data found"
+      },
+      "created": "A new Short News Data is created with identifier {{ param }}",
+      "updated": "A Short News Data is updated with identifier {{ param }}",
+      "deleted": "A Short News Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Short News Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Short News Data"
+      },
+      "id": "ID",
+      "title": "Title",
+      "linkUrl": "Link Url",
+      "orderNews": "Order News"
+    }
+  }
+}

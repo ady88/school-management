@@ -1,0 +1,40 @@
+{
+  "schoolManagementApp": {
+    "general": {
+      "home": {
+        "title": "Generals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new General",
+        "createOrEditLabel": "Create or edit a General",
+        "notFound": "No Generals found"
+      },
+      "created": "A new General is created with identifier {{ param }}",
+      "updated": "A General is updated with identifier {{ param }}",
+      "deleted": "A General is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete General {{ id }}?"
+      },
+      "detail": {
+        "title": "General"
+      },
+      "id": "ID",
+      "siteName": "Site Name",
+      "homePageName": "Home Page Name",
+      "resourcesPageName": "Resources Page Name",
+      "staffPageName": "Staff Page Name",
+      "aboutPageName": "About Page Name",
+      "facebookAddress": "Facebook Address",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "motto": "Motto",
+      "structure1": "Structure 1",
+      "structure2": "Structure 2",
+      "structure3": "Structure 3",
+      "structure4": "Structure 4",
+      "contactHeader": "Contact Header",
+      "structuresHeader": "Structures Header",
+      "mapUrl": "Map Url"
+    }
+  }
+}

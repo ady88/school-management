@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "staffData": {
+      "home": {
+        "title": "Staff Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Staff Data",
+        "createOrEditLabel": "Creeare sau editare Staff Data",
+        "notFound": "No Staff Data found"
+      },
+      "created": "A fost creată o nouă entitate Staff Data cu identificatorul {{ param }}",
+      "updated": "Staff Data cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Staff Data cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Staff Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Staff Data"
+      },
+      "id": "ID",
+      "orderStaff": "Order Staff",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "jobType": "Job Type",
+      "unitName": "Unit Name"
+    }
+  }
+}

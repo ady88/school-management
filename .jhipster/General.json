@@ -1,0 +1,85 @@
+{
+  "applications": "*",
+  "changelogDate": "20230909114933",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "general",
+  "fields": [
+    {
+      "fieldName": "siteName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "homePageName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourcesPageName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "staffPageName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aboutPageName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facebookAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structure1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structure2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structure3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structure4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactHeader",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structuresHeader",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mapUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "General",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="docsData">
+      <h2 data-cy="docsDataDetailsHeading"><span jhiTranslate="schoolManagementApp.docsData.detail.title">Docs Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ docsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.docsData.name">Name</span></dt>
+        <dd>
+          <span>{{ docsData.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.docsData.description">Description</span></dt>
+        <dd>
+          <span>{{ docsData.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.docsData.doc">Doc</span></dt>
+        <dd>
+          <div *ngIf="docsData.doc">
+            <a (click)="openFile(docsData.doc, docsData.docContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ docsData.docContentType }}, {{ byteSize(docsData.doc) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.docsData.orderdoc">Orderdoc</span></dt>
+        <dd>
+          <span>{{ docsData.orderdoc }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.docsData.resourcedate">Resourcedate</span></dt>
+        <dd>
+          <span>{{ docsData.resourcedate | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/docs-data', docsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

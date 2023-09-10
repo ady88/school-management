@@ -1,0 +1,29 @@
+{
+  "schoolManagementApp": {
+    "newsData": {
+      "home": {
+        "title": "News Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate News Data",
+        "createOrEditLabel": "Creeare sau editare News Data",
+        "notFound": "No News Data found"
+      },
+      "created": "A fost creată o nouă entitate News Data cu identificatorul {{ param }}",
+      "updated": "News Data cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "News Data cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți News Data {{ id }}?"
+      },
+      "detail": {
+        "title": "News Data"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "image": "Image",
+      "linkLabel": "Link Label",
+      "linkUrl": "Link Url",
+      "orderNews": "Order News"
+    }
+  }
+}

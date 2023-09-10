@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="shortNewsData">
+      <h2 data-cy="shortNewsDataDetailsHeading">
+        <span jhiTranslate="schoolManagementApp.shortNewsData.detail.title">Short News Data</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ shortNewsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.shortNewsData.title">Title</span></dt>
+        <dd>
+          <span>{{ shortNewsData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.shortNewsData.linkUrl">Link Url</span></dt>
+        <dd>
+          <span>{{ shortNewsData.linkUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.shortNewsData.orderNews">Order News</span></dt>
+        <dd>
+          <span>{{ shortNewsData.orderNews }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/short-news-data', shortNewsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

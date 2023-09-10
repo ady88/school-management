@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="newsData">
+      <h2 data-cy="newsDataDetailsHeading"><span jhiTranslate="schoolManagementApp.newsData.detail.title">News Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ newsData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.title">Title</span></dt>
+        <dd>
+          <span>{{ newsData.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.description">Description</span></dt>
+        <dd>
+          <span>{{ newsData.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.image">Image</span></dt>
+        <dd>
+          <div *ngIf="newsData.image">
+            <a (click)="openFile(newsData.image, newsData.imageContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ newsData.imageContentType }}, {{ byteSize(newsData.image) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.linkLabel">Link Label</span></dt>
+        <dd>
+          <span>{{ newsData.linkLabel }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.linkUrl">Link Url</span></dt>
+        <dd>
+          <span>{{ newsData.linkUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.newsData.orderNews">Order News</span></dt>
+        <dd>
+          <span>{{ newsData.orderNews }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/news-data', newsData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "schoolManagementApp": {
+    "general": {
+      "home": {
+        "title": "Generals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate General",
+        "createOrEditLabel": "Creeare sau editare General",
+        "notFound": "No Generals found"
+      },
+      "created": "A fost creată o nouă entitate General cu identificatorul {{ param }}",
+      "updated": "General cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "General cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți General {{ id }}?"
+      },
+      "detail": {
+        "title": "General"
+      },
+      "id": "ID",
+      "siteName": "Site Name",
+      "homePageName": "Home Page Name",
+      "resourcesPageName": "Resources Page Name",
+      "staffPageName": "Staff Page Name",
+      "aboutPageName": "About Page Name",
+      "facebookAddress": "Facebook Address",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "motto": "Motto",
+      "structure1": "Structure 1",
+      "structure2": "Structure 2",
+      "structure3": "Structure 3",
+      "structure4": "Structure 4",
+      "contactHeader": "Contact Header",
+      "structuresHeader": "Structures Header",
+      "mapUrl": "Map Url"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20230909114939",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "other",
+  "fields": [
+    {
+      "fieldName": "useTopImage",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "topImage",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "useMainImage",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "mainImage",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "theme",
+      "fieldType": "Theme",
+      "fieldValues": "BLUE,GREEN,RED,YELLOW"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Other",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

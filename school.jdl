@@ -1,0 +1,84 @@
+
+entity General {
+	siteName String required
+	homePageName String
+	resourcesPageName String
+	staffPageName String
+	aboutPageName String
+	facebookAddress String
+    address String
+    phone String
+    email String
+    motto String
+    structure1 String
+    structure2 String
+    structure3 String
+    structure4 String
+    contactHeader String
+    structuresHeader String
+    mapUrl String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity StaffData {
+	orderStaff Integer required
+	lastName String required
+    firstName String required
+	jobType String required
+    unitName String required
+}
+
+entity NewsData {
+	title String required unique
+    description String required
+    image Blob
+    linkLabel String
+    linkUrl String
+    orderNews Integer required
+}
+
+entity ShortNewsData {
+	title String required unique
+    linkUrl String
+    orderNews Integer required
+}
+
+entity MainNewsData {
+	title String required
+    description String required
+    image Blob required
+    orderNews Integer required
+}
+
+entity DocsData {
+	name String required
+    description String
+    doc Blob required
+    orderdoc Integer required
+    resourcedate Instant required
+}
+
+entity Other {
+	useTopImage Boolean
+	topImage ImageBlob
+    useMainImage Boolean
+    mainImage ImageBlob
+    theme Theme
+}
+
+enum Theme {
+    BLUE, GREEN, RED, YELLOW
+}
+
+// Set pagination options
+paginate ShortNewsData, MainNewsData, NewsData, StaffData, DocsData with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

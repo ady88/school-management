@@ -1,0 +1,200 @@
+<div>
+  <h2 id="page-heading" data-cy="GeneralHeading">
+    <span jhiTranslate="schoolManagementApp.general.home.title">Generals</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="schoolManagementApp.general.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-general"
+        [routerLink]="['/general/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="schoolManagementApp.general.home.createLabel"> Create a new General </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="generals?.length === 0">
+    <span jhiTranslate="schoolManagementApp.general.home.notFound">No Generals found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="generals && generals.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="siteName">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.siteName">Site Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="homePageName">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.homePageName">Home Page Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resourcesPageName">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.resourcesPageName">Resources Page Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="staffPageName">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.staffPageName">Staff Page Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="aboutPageName">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.aboutPageName">About Page Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="facebookAddress">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.facebookAddress">Facebook Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.address">Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phone">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.phone">Phone</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="motto">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.motto">Motto</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="structure1">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.structure1">Structure 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="structure2">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.structure2">Structure 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="structure3">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.structure3">Structure 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="structure4">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.structure4">Structure 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="contactHeader">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.contactHeader">Contact Header</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="structuresHeader">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.structuresHeader">Structures Header</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mapUrl">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.general.mapUrl">Map Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let general of generals; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/general', general.id, 'view']">{{ general.id }}</a>
+          </td>
+          <td>{{ general.siteName }}</td>
+          <td>{{ general.homePageName }}</td>
+          <td>{{ general.resourcesPageName }}</td>
+          <td>{{ general.staffPageName }}</td>
+          <td>{{ general.aboutPageName }}</td>
+          <td>{{ general.facebookAddress }}</td>
+          <td>{{ general.address }}</td>
+          <td>{{ general.phone }}</td>
+          <td>{{ general.email }}</td>
+          <td>{{ general.motto }}</td>
+          <td>{{ general.structure1 }}</td>
+          <td>{{ general.structure2 }}</td>
+          <td>{{ general.structure3 }}</td>
+          <td>{{ general.structure4 }}</td>
+          <td>{{ general.contactHeader }}</td>
+          <td>{{ general.structuresHeader }}</td>
+          <td>{{ general.mapUrl }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/general', general.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/general', general.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(general)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

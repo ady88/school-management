@@ -1,0 +1,146 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-other-heading" data-cy="OtherCreateUpdateHeading" jhiTranslate="schoolManagementApp.other.home.createOrEditLabel">
+        Create or edit a Other
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.other.useTopImage" for="field_useTopImage">Use Top Image</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="useTopImage"
+            id="field_useTopImage"
+            data-cy="useTopImage"
+            formControlName="useTopImage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.other.topImage" for="field_topImage">Top Image</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('topImageContentType')!.value + ';base64,' + editForm.get('topImage')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('topImage')!.value"
+              alt="other image"
+            />
+            <div *ngIf="editForm.get('topImage')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('topImageContentType')!.value }}, {{ byteSize(editForm.get('topImage')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('topImage', 'topImageContentType', 'file_topImage')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_topImage"
+              data-cy="topImage"
+              (change)="setFileData($event, 'topImage', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="topImage" id="field_topImage" data-cy="topImage" formControlName="topImage" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="topImageContentType"
+            id="field_topImageContentType"
+            formControlName="topImageContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.other.useMainImage" for="field_useMainImage">Use Main Image</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="useMainImage"
+            id="field_useMainImage"
+            data-cy="useMainImage"
+            formControlName="useMainImage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.other.mainImage" for="field_mainImage">Main Image</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('mainImageContentType')!.value + ';base64,' + editForm.get('mainImage')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('mainImage')!.value"
+              alt="other image"
+            />
+            <div *ngIf="editForm.get('mainImage')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('mainImageContentType')!.value }}, {{ byteSize(editForm.get('mainImage')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('mainImage', 'mainImageContentType', 'file_mainImage')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_mainImage"
+              data-cy="mainImage"
+              (change)="setFileData($event, 'mainImage', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="mainImage" id="field_mainImage" data-cy="mainImage" formControlName="mainImage" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="mainImageContentType"
+            id="field_mainImageContentType"
+            formControlName="mainImageContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.other.theme" for="field_theme">Theme</label>
+          <select class="form-control" name="theme" formControlName="theme" id="field_theme" data-cy="theme">
+            <option [ngValue]="null">{{ 'schoolManagementApp.Theme.null' | translate }}</option>
+            <option *ngFor="let theme of themeValues" [value]="theme">{{ 'schoolManagementApp.Theme.' + theme | translate }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

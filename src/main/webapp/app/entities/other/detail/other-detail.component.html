@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="other">
+      <h2 data-cy="otherDetailsHeading"><span jhiTranslate="schoolManagementApp.other.detail.title">Other</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ other.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.other.useTopImage">Use Top Image</span></dt>
+        <dd>
+          <span>{{ other.useTopImage }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.other.topImage">Top Image</span></dt>
+        <dd>
+          <div *ngIf="other.topImage">
+            <a (click)="openFile(other.topImage, other.topImageContentType)">
+              <img [src]="'data:' + other.topImageContentType + ';base64,' + other.topImage" style="max-width: 100%" alt="other image" />
+            </a>
+            {{ other.topImageContentType }}, {{ byteSize(other.topImage) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.other.useMainImage">Use Main Image</span></dt>
+        <dd>
+          <span>{{ other.useMainImage }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.other.mainImage">Main Image</span></dt>
+        <dd>
+          <div *ngIf="other.mainImage">
+            <a (click)="openFile(other.mainImage, other.mainImageContentType)">
+              <img [src]="'data:' + other.mainImageContentType + ';base64,' + other.mainImage" style="max-width: 100%" alt="other image" />
+            </a>
+            {{ other.mainImageContentType }}, {{ byteSize(other.mainImage) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="schoolManagementApp.other.theme">Theme</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'schoolManagementApp.Theme.' + other.theme }}">{{ other.theme }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/other', other.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

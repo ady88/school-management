@@ -1,0 +1,27 @@
+{
+  "schoolManagementApp": {
+    "mainNewsData": {
+      "home": {
+        "title": "Main News Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Main News Data",
+        "createOrEditLabel": "Create or edit a Main News Data",
+        "notFound": "No Main News Data found"
+      },
+      "created": "A new Main News Data is created with identifier {{ param }}",
+      "updated": "A Main News Data is updated with identifier {{ param }}",
+      "deleted": "A Main News Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Main News Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Main News Data"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "image": "Image",
+      "orderNews": "Order News"
+    }
+  }
+}

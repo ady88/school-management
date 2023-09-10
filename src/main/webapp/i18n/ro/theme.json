@@ -1,0 +1,11 @@
+{
+  "schoolManagementApp": {
+    "Theme": {
+      "null": "",
+      "BLUE": "BLUE",
+      "GREEN": "GREEN",
+      "RED": "RED",
+      "YELLOW": "YELLOW"
+    }
+  }
+}

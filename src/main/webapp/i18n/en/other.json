@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "other": {
+      "home": {
+        "title": "Others",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Other",
+        "createOrEditLabel": "Create or edit a Other",
+        "notFound": "No Others found"
+      },
+      "created": "A new Other is created with identifier {{ param }}",
+      "updated": "A Other is updated with identifier {{ param }}",
+      "deleted": "A Other is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Other {{ id }}?"
+      },
+      "detail": {
+        "title": "Other"
+      },
+      "id": "ID",
+      "useTopImage": "Use Top Image",
+      "topImage": "Top Image",
+      "useMainImage": "Use Main Image",
+      "mainImage": "Main Image",
+      "theme": "Theme"
+    }
+  }
+}

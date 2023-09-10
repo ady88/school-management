@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "other": {
+      "home": {
+        "title": "Others",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Other",
+        "createOrEditLabel": "Creeare sau editare Other",
+        "notFound": "No Others found"
+      },
+      "created": "A fost creată o nouă entitate Other cu identificatorul {{ param }}",
+      "updated": "Other cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Other cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Other {{ id }}?"
+      },
+      "detail": {
+        "title": "Other"
+      },
+      "id": "ID",
+      "useTopImage": "Use Top Image",
+      "topImage": "Top Image",
+      "useMainImage": "Use Main Image",
+      "mainImage": "Main Image",
+      "theme": "Theme"
+    }
+  }
+}

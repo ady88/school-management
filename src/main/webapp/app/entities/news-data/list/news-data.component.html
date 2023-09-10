@@ -1,0 +1,133 @@
+<div>
+  <h2 id="page-heading" data-cy="NewsDataHeading">
+    <span jhiTranslate="schoolManagementApp.newsData.home.title">News Data</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="schoolManagementApp.newsData.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-news-data"
+        [routerLink]="['/news-data/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="schoolManagementApp.newsData.home.createLabel"> Create a new News Data </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="newsData?.length === 0">
+    <span jhiTranslate="schoolManagementApp.newsData.home.notFound">No News Data found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="newsData && newsData.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="image">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.image">Image</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="linkLabel">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.linkLabel">Link Label</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="linkUrl">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.linkUrl">Link Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orderNews">
+            <div class="d-flex">
+              <span jhiTranslate="schoolManagementApp.newsData.orderNews">Order News</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let newsData of newsData; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/news-data', newsData.id, 'view']">{{ newsData.id }}</a>
+          </td>
+          <td>{{ newsData.title }}</td>
+          <td>{{ newsData.description }}</td>
+          <td>
+            <a *ngIf="newsData.image" (click)="openFile(newsData.image, newsData.imageContentType)" jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="newsData.image">{{ newsData.imageContentType }}, {{ byteSize(newsData.image) }}</span>
+          </td>
+          <td>{{ newsData.linkLabel }}</td>
+          <td>{{ newsData.linkUrl }}</td>
+          <td>{{ newsData.orderNews }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/news-data', newsData.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/news-data', newsData.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(newsData)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

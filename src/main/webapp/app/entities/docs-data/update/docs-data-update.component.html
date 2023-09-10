@@ -1,0 +1,150 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-docs-data-heading"
+        data-cy="DocsDataCreateUpdateHeading"
+        jhiTranslate="schoolManagementApp.docsData.home.createOrEditLabel"
+      >
+        Create or edit a Docs Data
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.docsData.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.docsData.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.docsData.doc" for="field_doc">Doc</label>
+          <div>
+            <div *ngIf="editForm.get('doc')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('doc')!.value!, editForm.get('docContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start">{{ editForm.get('docContentType')!.value }}, {{ byteSize(editForm.get('doc')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ doc: undefined, docContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_doc"
+              data-cy="doc"
+              (change)="setFileData($event, 'doc', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="doc" id="field_doc" data-cy="doc" formControlName="doc" />
+          <input type="hidden" class="form-control" name="docContentType" id="field_docContentType" formControlName="docContentType" />
+          <div *ngIf="editForm.get('doc')!.invalid && (editForm.get('doc')!.dirty || editForm.get('doc')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('doc')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.docsData.orderdoc" for="field_orderdoc">Orderdoc</label>
+          <input type="number" class="form-control" name="orderdoc" id="field_orderdoc" data-cy="orderdoc" formControlName="orderdoc" />
+          <div *ngIf="editForm.get('orderdoc')!.invalid && (editForm.get('orderdoc')!.dirty || editForm.get('orderdoc')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('orderdoc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('orderdoc')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolManagementApp.docsData.resourcedate" for="field_resourcedate">Resourcedate</label>
+          <div class="d-flex">
+            <input
+              id="field_resourcedate"
+              data-cy="resourcedate"
+              type="datetime-local"
+              class="form-control"
+              name="resourcedate"
+              formControlName="resourcedate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="editForm.get('resourcedate')!.invalid && (editForm.get('resourcedate')!.dirty || editForm.get('resourcedate')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('resourcedate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('resourcedate')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

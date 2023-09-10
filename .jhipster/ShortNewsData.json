@@ -1,0 +1,30 @@
+{
+  "applications": "*",
+  "changelogDate": "20230909114936",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "short_news_data",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "linkUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderNews",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ShortNewsData",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

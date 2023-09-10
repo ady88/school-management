@@ -1,0 +1,28 @@
+{
+  "schoolManagementApp": {
+    "docsData": {
+      "home": {
+        "title": "Docs Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Docs Data",
+        "createOrEditLabel": "Create or edit a Docs Data",
+        "notFound": "No Docs Data found"
+      },
+      "created": "A new Docs Data is created with identifier {{ param }}",
+      "updated": "A Docs Data is updated with identifier {{ param }}",
+      "deleted": "A Docs Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Docs Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Docs Data"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "doc": "Doc",
+      "orderdoc": "Orderdoc",
+      "resourcedate": "Resourcedate"
+    }
+  }
+}
